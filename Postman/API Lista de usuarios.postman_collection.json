@@ -1,0 +1,199 @@
+{
+	"info": {
+		"_postman_id": "bd7aebed-3def-48d6-a0f8-bdbd510abc99",
+		"name": "API Lista de usuarios",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "27609692"
+	},
+	"item": [
+		{
+			"name": "Crear nuevo usuario",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"testValidation201(pm);\r",
+							"\r",
+							"testResponse = function () {\r",
+							"\r",
+							"    responseBody.has(\"Eric\");\r",
+							"\r",
+							"    tests[\"Body matches string\"] = responseBody.has(\"Eric\");\r",
+							"    tests[\"Body matches string\"] = responseBody.has(\"Garcia\");\r",
+							"    tests[\"Body matches string\"] = responseBody.has(\"eric.garcia@col.vueling.com\");\r",
+							"\r",
+							"}\r",
+							"testResponse();\r",
+							"\r",
+							"pm.test(\"Comprobar tipo de datos\", () => {\r",
+							"    pm.expect(responseBody.has(\"first_name\")).to.be.a('number');\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"data\": {\r\n        \"id\": 100,\r\n        \"email\": \"eric.garcia@col.vueling.com\",\r\n        \"first_name\": \"Eric\",\r\n        \"last_name\": \"Garcia\",\r\n        \"avatar\": \"\"\r\n    },\r\n    \"support\": {\r\n        \"url\": \"https://reqres.in/#support-heading\",\r\n        \"text\": \"To keep ReqRes free, contributions towards server costs are appreciated!\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL_Reqres}}100",
+					"host": [
+						"{{URL_Reqres}}100"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener lista de usuarios",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"testValidation200(pm);\r",
+							"\r",
+							"testResponse = function () {\r",
+							"\r",
+							"    tests[\"Body matches string\"] = responseBody.has(\"first_name\");\r",
+							"\r",
+							"}\r",
+							"testResponse();"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{URL_Reqres}}",
+					"host": [
+						"{{URL_Reqres}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Actualizar nombre de usuario",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"testValidation200(pm);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"first_name\":\"Manola\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL_Reqres}}6",
+					"host": [
+						"{{URL_Reqres}}6"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Eliminar email de usuario",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"testValidation204(pm);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\":\"janet.weaver@reqres.in\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL_Reqres}}",
+					"host": [
+						"{{URL_Reqres}}"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					"testValidation200 = function (pm) {",
+					"    pm.test(\"Status code is 200\", function () {",
+					"        pm.response.to.have.status(200);",
+					"    });",
+					"}",
+					"",
+					"testValidation201 = function (pm) {",
+					"    pm.test(\"Status code is 201\", function () {",
+					"        pm.response.to.have.status(201);",
+					"    });",
+					"}",
+					"",
+					"testValidation204 = function (pm) {",
+					"    pm.test(\"Status code is 204\", function () {",
+					"        pm.response.to.have.status(204);",
+					"    });",
+					"}"
+				]
+			}
+		}
+	]
+}
