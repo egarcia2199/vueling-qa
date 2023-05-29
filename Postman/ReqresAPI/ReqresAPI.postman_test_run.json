@@ -1,0 +1,293 @@
+{
+	"id": "cbd4aec3-1c19-4959-8dd2-6ebc18aedb6f",
+	"name": "ReqresAPI",
+	"timestamp": "2023-05-29T17:29:41.511Z",
+	"collection_id": "27609692-bd7aebed-3def-48d6-a0f8-bdbd510abc99",
+	"folder_id": 0,
+	"environment_id": "27609692-7f556c59-42cc-46d3-b4cb-948cd08c1978",
+	"totalPass": 13,
+	"delay": 0,
+	"persist": true,
+	"status": "finished",
+	"startedAt": "2023-05-29T17:29:40.076Z",
+	"totalFail": 3,
+	"results": [
+		{
+			"id": "f2015843-7936-4462-a8ce-4a6c9e98d8a1",
+			"name": "Obtener listado nombres",
+			"url": "https://reqres.in/api/users/",
+			"time": 115,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"List of employee's name": true,
+				"Check if value is a string or number": false
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"List of employee's name": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Check if value is a string or number": {
+					"pass": 0,
+					"fail": 1
+				}
+			},
+			"times": [
+				115
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"List of employee's name": true,
+					"Check if value is a string or number": false
+				}
+			]
+		},
+		{
+			"id": "e7ba908c-f5a7-499a-9ebd-728ac66d1953",
+			"name": "Actualizar nombre usuario ID 6",
+			"url": "https://reqres.in/api/users/6",
+			"time": 119,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Check if value is a string or number": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Check if value is a string or number": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				119
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Check if value is a string or number": true
+				}
+			]
+		},
+		{
+			"id": "1f37e82c-9f3e-42fa-bad9-ab2a77553ee0",
+			"name": "Obtener listado nombres",
+			"url": "https://reqres.in/api/users/",
+			"time": 22,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"List of employee's name": true,
+				"Value is a string data type": false
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"List of employee's name": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Value is a string data type": {
+					"pass": 0,
+					"fail": 1
+				}
+			},
+			"times": [
+				22
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"List of employee's name": true,
+					"Value is a string data type": false
+				}
+			]
+		},
+		{
+			"id": "45d831e7-9013-43be-98bd-32d2b1084dcd",
+			"name": "Crear nuevo usuario",
+			"url": "https://reqres.in/api/users/",
+			"time": 96,
+			"responseCode": {
+				"code": 201,
+				"name": "Created"
+			},
+			"tests": {
+				"Status code is 201": true,
+				"Check if value is a string or number": true
+			},
+			"testPassFailCounts": {
+				"Status code is 201": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Check if value is a string or number": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				96
+			],
+			"allTests": [
+				{
+					"Status code is 201": true,
+					"Check if value is a string or number": true
+				}
+			]
+		},
+		{
+			"id": "0c5adf36-fe9e-455c-9379-a733d29106c9",
+			"name": "Actualizar email usuario ID 1",
+			"url": "https://reqres.in/api/users/",
+			"time": 96,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Check if value is a string or number": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Check if value is a string or number": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				96
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Check if value is a string or number": true
+				}
+			]
+		},
+		{
+			"id": "f1ac4935-3afb-4ac7-b267-2415eeff934e",
+			"name": "Eliminar usuario ID 3",
+			"url": "https://reqres.in/api/users/3",
+			"time": 100,
+			"responseCode": {
+				"code": 204,
+				"name": "No Content"
+			},
+			"tests": {
+				"Status code is 204": true
+			},
+			"testPassFailCounts": {
+				"Status code is 204": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				100
+			],
+			"allTests": [
+				{
+					"Status code is 204": true
+				}
+			]
+		},
+		{
+			"id": "d66dec27-8cf6-4fbb-906a-5cb7ba1c057e",
+			"name": "Obtener paginación de usuarios",
+			"url": "https://reqres.in/api/users/?page=2",
+			"time": 24,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"List of employee's name": true,
+				"Check if value is a string or number": false
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"List of employee's name": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Check if value is a string or number": {
+					"pass": 0,
+					"fail": 1
+				}
+			},
+			"times": [
+				24
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"List of employee's name": true,
+					"Check if value is a string or number": false
+				}
+			]
+		}
+	],
+	"count": 1,
+	"totalTime": 572,
+	"collection": {
+		"requests": [
+			{
+				"id": "f2015843-7936-4462-a8ce-4a6c9e98d8a1",
+				"method": "GET"
+			},
+			{
+				"id": "e7ba908c-f5a7-499a-9ebd-728ac66d1953",
+				"method": "PUT"
+			},
+			{
+				"id": "1f37e82c-9f3e-42fa-bad9-ab2a77553ee0",
+				"method": "GET"
+			},
+			{
+				"id": "45d831e7-9013-43be-98bd-32d2b1084dcd",
+				"method": "POST"
+			},
+			{
+				"id": "0c5adf36-fe9e-455c-9379-a733d29106c9",
+				"method": "PUT"
+			},
+			{
+				"id": "f1ac4935-3afb-4ac7-b267-2415eeff934e",
+				"method": "DELETE"
+			},
+			{
+				"id": "d66dec27-8cf6-4fbb-906a-5cb7ba1c057e",
+				"method": "GET"
+			}
+		]
+	}
+}

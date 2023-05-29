@@ -1,0 +1,322 @@
+{
+	"info": {
+		"_postman_id": "550e8ca2-2298-40a4-a812-5b89ca1c80ab",
+		"name": "Marvel API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "27609692"
+	},
+	"item": [
+		{
+			"name": "TC1",
+			"item": [
+				{
+					"name": "Obtener los 100 primeros personajes",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"getNameCharacter = function (Json) {\r",
+									"\r",
+									"    for (i=1; i < Json.data.results.length; i++) {\r",
+									"     console.log(\"Personaje \" + i + \": \"  + Json.data.results[i].name);\r",
+									"    }\r",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"testValidation200(pm);\r",
+									"\r",
+									"let jsonData = pm.response.json();\r",
+									"\r",
+									"pm.test(\"List of Name Characters: \"+getNameCharacter(jsonData));\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URLmarvel}}characters?limit=100&{{timestamp}}{{pubKey}}{{hash}}",
+							"host": [
+								"{{URLmarvel}}characters"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "100"
+								},
+								{
+									"key": "{{timestamp}}{{pubKey}}{{hash}}",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener los 100 primeros creadores",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"getCreatorName = function (Json) {\r",
+									"\r",
+									"    for (i=1; i < Json.data.results.length; i++) {\r",
+									"     console.log(\"Creador Nº\" + i + \": \"  + Json.data.results[i].firstName+\" \"+Json.data.results[i].lastName);\r",
+									"    }\r",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"testValidation200(pm);\r",
+									"\r",
+									"let jsonData = pm.response.json();\r",
+									"\r",
+									"pm.test(\"List of Name Characters: \"+getCreatorName(jsonData));\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URLmarvel}}creators?limit=100&{{timestamp}}{{pubKey}}{{hash}}",
+							"host": [
+								"{{URLmarvel}}creators"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "100"
+								},
+								{
+									"key": "{{timestamp}}{{pubKey}}{{hash}}",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener los 100 primeros comics",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"getlistOfComics = function (Json) {\r",
+									"\r",
+									"    for (i=1; i < Json.data.results.length; i++) {\r",
+									"     console.log(\"Comic Nº\" + i + \": \"  + Json.data.results[i].title);\r",
+									"    }\r",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"testValidation200(pm);\r",
+									"\r",
+									"let jsonData = pm.response.json();\r",
+									"\r",
+									"pm.test(\"List of Comics: \"+getlistOfComics(jsonData));\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URLmarvel}}comics?limit=100&{{timestamp}}{{pubKey}}{{hash}}",
+							"host": [
+								"{{URLmarvel}}comics"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "100"
+								},
+								{
+									"key": "{{timestamp}}{{pubKey}}{{hash}}",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener cuantos comics tiene cada creador",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"getNumOfComicsByCreator = function (Json) {\r",
+									"\r",
+									"    for (i=0; i < Json.data.results.length; i++) {\r",
+									"\r",
+									"      console.log(Json.data.results[i].firstName +\" \"+ Json.data.results[i].lastName + \": \" + Json.data.results[i].comics.available +\" comics\");\r",
+									"        \r",
+									"    }\r",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"testValidation200(pm);\r",
+									"\r",
+									"let jsonData = pm.response.json();\r",
+									"\r",
+									"pm.test(\"List of comics by Creators: \"+getNumOfComicsByCreator(jsonData));\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URLmarvel}}creators?limit=100&{{timestamp}}{{pubKey}}{{hash}}",
+							"host": [
+								"{{URLmarvel}}creators"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "100"
+								},
+								{
+									"key": "{{timestamp}}{{pubKey}}{{hash}}",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener en cuantas series aparece Deadpool",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"getListOfComicsDeadPool = function (Json) {\r",
+									" \r",
+									"    console.log(Json.data.results[0].name+\": \"); \r",
+									"\r",
+									"    for (i=0; i < Json.data.results[0].comics.items.length; i++) {\r",
+									"\r",
+									"        let array = Json.data.results[0].comics.items[i].name;\r",
+									"        pm.environment.set(\"Data\", array);\r",
+									"        console.log(i+\". \" + array)\r",
+									"        \r",
+									"    }\r",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"testValidation200(pm);\r",
+									"\r",
+									"let jsonData = pm.response.json();\r",
+									"\r",
+									"pm.test(\"List list of Comics where Deadpool appears: \"+getListOfComicsDeadPool(jsonData));"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URLmarvel}}characters?name=Deadpool&{{timestamp}}{{pubKey}}{{hash}}",
+							"host": [
+								"{{URLmarvel}}characters"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "Deadpool"
+								},
+								{
+									"key": "{{timestamp}}{{pubKey}}{{hash}}",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					"testValidation200 = function (pm) {",
+					"    pm.test(\"Status code is 200\", function () {",
+					"        pm.response.to.have.status(200);",
+					"    });",
+					"}",
+					"",
+					"testValidation201 = function (pm) {",
+					"    pm.test(\"Status code is 201\", function () {",
+					"        pm.response.to.have.status(201);",
+					"    });",
+					"}"
+				]
+			}
+		}
+	]
+}

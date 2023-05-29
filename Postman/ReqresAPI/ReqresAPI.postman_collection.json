@@ -1,0 +1,406 @@
+{
+	"info": {
+		"_postman_id": "bd7aebed-3def-48d6-a0f8-bdbd510abc99",
+		"name": "ReqresAPI",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "27609692"
+	},
+	"item": [
+		{
+			"name": "Obtener listado nombres",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"testValidation200(pm);\r",
+							"\r",
+							"let jsonData = pm.response.json();\r",
+							"\r",
+							"\r",
+							"pm.test(\"List of employee's name\",getCreatorName(jsonData));\r",
+							"\r",
+							"pm.test(\"Check if value is a string or number\", function() {\r",
+							"\r",
+							"   console.log( pm.expect(jsonData.data.id).to.be.a('number'));\r",
+							"    pm.expect(jsonData.first_name).to.be.a('string');\r",
+							"    pm.expect(jsonData.last_name).to.be.a('string');\r",
+							"});\r",
+							"\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"getCreatorName = function (Json) {\r",
+							"    let counter = 1;\r",
+							"\r",
+							"    for (i=0; i < Json.data.length; i++) {\r",
+							"     console.log(\"Empleado Nº\" + counter + \": \"  + Json.data[i].first_name+\" \"+Json.data[i].last_name)\r",
+							"     counter++;\r",
+							"    }\r",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{URL_Reqres}}",
+					"host": [
+						"{{URL_Reqres}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Actualizar nombre usuario ID 6",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"testValidation200(pm);\r",
+							"\r",
+							"let jsonData = pm.response.json();\r",
+							"console.log(jsonData);\r",
+							"\r",
+							"pm.test(\"Check if value is a string or number\", function() {\r",
+							"\r",
+							"    pm.expect(jsonData.id).to.be.a('number');\r",
+							"    pm.expect(jsonData.first_name).to.be.a('string');\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": " {\r\n            \"id\": 6,\r\n            \"email\": \"pepe.reina@reqres.in\",\r\n            \"first_name\": \"Pepe\",\r\n            \"last_name\": \"Reina\",\r\n            \"avatar\": \"\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL_Reqres}}6",
+					"host": [
+						"{{URL_Reqres}}6"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener listado nombres",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"testValidation200(pm);\r",
+							"\r",
+							"let jsonData = pm.response.json();\r",
+							"\r",
+							"pm.test(\"List of employee's name\",getCreatorName(jsonData));\r",
+							"\r",
+							"pm.test(\"Value is a string data type\", function() {\r",
+							"  pm.expect(jsonData.data.first_name).to.be.a('string');\r",
+							" \r",
+							"})\r",
+							"\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"getCreatorName = function (Json) {\r",
+							"    let counter = 1;\r",
+							"\r",
+							"    for (i=0; i < Json.data.length; i++) {\r",
+							"     console.log(\"Empleado Nº\" + counter + \": \"  + Json.data[i].first_name+\" \"+Json.data[i].last_name)\r",
+							"     counter++;\r",
+							"    }\r",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{URL_Reqres}}",
+					"host": [
+						"{{URL_Reqres}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Crear nuevo usuario",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"testValidation201(pm);\r",
+							"\r",
+							"let jsonData = pm.response.json();\r",
+							"\r",
+							"pm.test(\"Check if value is a string or number\", function() {\r",
+							"\r",
+							"    pm.expect(jsonData.data.id).to.be.a('number');\r",
+							"    pm.expect(jsonData.data.first_name).to.be.a('string');\r",
+							"    pm.expect(jsonData.data.last_name).to.be.a('string');\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"data\": {\r\n        \"id\": 100,\r\n        \"email\": \"eric.garcia@col.vueling.com\",\r\n        \"first_name\": \"Eric\",\r\n        \"last_name\": \"Garcia\",\r\n        \"avatar\": \"\"\r\n    },\r\n    \"support\": {\r\n        \"url\": \"https://reqres.in/#support-heading\",\r\n        \"text\": \"To keep ReqRes free, contributions towards server costs are appreciated!\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL_Reqres}}",
+					"host": [
+						"{{URL_Reqres}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Actualizar email usuario ID 1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"testValidation200(pm);\r",
+							"\r",
+							"let jsonData = pm.response.json();\r",
+							"console.log(jsonData);\r",
+							"\r",
+							"pm.test(\"Check if value is a string or number\", function() {\r",
+							"\r",
+							"    pm.expect(jsonData.id).to.be.a('number');\r",
+							"    pm.expect(jsonData.first_name).to.be.a('string');\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": " {\r\n             \"id\": 1,\r\n            \"email\": \"george.bluth2@reqres.in\",\r\n            \"first_name\": \"George\",\r\n            \"last_name\": \"Bluth\",\r\n            \"avatar\": \"\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL_Reqres}}",
+					"host": [
+						"{{URL_Reqres}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Eliminar usuario ID 3",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"testValidation204(pm);\r",
+							"\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL_Reqres}}3",
+					"host": [
+						"{{URL_Reqres}}3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener paginación de usuarios",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"testValidation200(pm);\r",
+							"\r",
+							"let jsonData = pm.response.json();\r",
+							"\r",
+							"\r",
+							"pm.test(\"List of employee's name\",getCreatorName(jsonData));\r",
+							"\r",
+							"pm.test(\"Check if value is a string or number\", function() {\r",
+							"\r",
+							"   console.log( pm.expect(jsonData.data.id).to.be.a('number'));\r",
+							"    pm.expect(jsonData.first_name).to.be.a('string');\r",
+							"    pm.expect(jsonData.last_name).to.be.a('string');\r",
+							"});\r",
+							"\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"getCreatorName = function (Json) {\r",
+							"    let counter = 1;\r",
+							"\r",
+							"    for (i=0; i < Json.data.length; i++) {\r",
+							"     console.log(\"Empleado Nº\" + counter + \": \"  + Json.data[i].first_name+\" \"+Json.data[i].last_name)\r",
+							"     counter++;\r",
+							"    }\r",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{URL_Reqres}}?page=2",
+					"host": [
+						"{{URL_Reqres}}"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					"testValidation200 = function (pm) {",
+					"    pm.test(\"Status code is 200\", function () {",
+					"        pm.response.to.have.status(200);",
+					"    });",
+					"}",
+					"",
+					"testValidation201 = function (pm) {",
+					"    pm.test(\"Status code is 201\", function () {",
+					"        pm.response.to.have.status(201);",
+					"    });",
+					"}",
+					"",
+					"testValidation204 = function (pm) {",
+					"    pm.test(\"Status code is 204\", function () {",
+					"        pm.response.to.have.status(204);",
+					"    });",
+					"}"
+				]
+			}
+		}
+	]
+}

@@ -1,0 +1,207 @@
+{
+	"id": "43f780d5-64ce-4db1-9cd9-67b26d66196d",
+	"name": "Marvel API",
+	"timestamp": "2023-05-29T17:34:29.829Z",
+	"collection_id": "27609692-550e8ca2-2298-40a4-a812-5b89ca1c80ab",
+	"folder_id": 0,
+	"environment_id": "27609692-abb1b216-cd47-470a-a46e-5edba5387ac9",
+	"totalPass": 10,
+	"delay": 0,
+	"persist": true,
+	"status": "finished",
+	"startedAt": "2023-05-29T17:34:17.155Z",
+	"totalFail": 0,
+	"results": [
+		{
+			"id": "4de3e4b3-fb9e-4f73-91a3-0a4601dd0f5d",
+			"name": "Obtener los 100 primeros personajes",
+			"url": "http://gateway.marvel.com/v1/public/characters?limit=100&ts%3D1%26apikey%3Da94b3b01f50604114f27bf4cfc246561%26hash%3D8790417439a57202702d58c22ba2bd14",
+			"time": 1926,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"List of Name Characters: undefined": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"List of Name Characters: undefined": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				1926
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"List of Name Characters: undefined": true
+				}
+			]
+		},
+		{
+			"id": "df8f1856-f5ae-4940-b6e6-9329ecbf00d2",
+			"name": "Obtener los 100 primeros creadores",
+			"url": "http://gateway.marvel.com/v1/public/creators?limit=100&ts%3D1%26apikey%3Da94b3b01f50604114f27bf4cfc246561%26hash%3D8790417439a57202702d58c22ba2bd14",
+			"time": 5135,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"List of Name Characters: undefined": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"List of Name Characters: undefined": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				5135
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"List of Name Characters: undefined": true
+				}
+			]
+		},
+		{
+			"id": "be762f11-aacc-48b8-847d-e6bdda0072ac",
+			"name": "Obtener los 100 primeros comics",
+			"url": "http://gateway.marvel.com/v1/public/comics?limit=100&ts%3D1%26apikey%3Da94b3b01f50604114f27bf4cfc246561%26hash%3D8790417439a57202702d58c22ba2bd14",
+			"time": 1942,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"List of Comics: undefined": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"List of Comics: undefined": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				1942
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"List of Comics: undefined": true
+				}
+			]
+		},
+		{
+			"id": "1c6a3427-d84b-4145-aba6-a5e73108cc7d",
+			"name": "Obtener cuantos comics tiene cada creador",
+			"url": "http://gateway.marvel.com/v1/public/creators?limit=100&ts%3D1%26apikey%3Da94b3b01f50604114f27bf4cfc246561%26hash%3D8790417439a57202702d58c22ba2bd14",
+			"time": 666,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"List of comics by Creators: undefined": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"List of comics by Creators: undefined": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				666
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"List of comics by Creators: undefined": true
+				}
+			]
+		},
+		{
+			"id": "bee6a1b3-e569-4bdf-a7d2-70b2897125a3",
+			"name": "Obtener en cuantas series aparece Deadpool",
+			"url": "http://gateway.marvel.com/v1/public/characters?name=Deadpool&ts%3D1%26apikey%3Da94b3b01f50604114f27bf4cfc246561%26hash%3D8790417439a57202702d58c22ba2bd14",
+			"time": 205,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"List list of Comics where Deadpool appears: undefined": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"List list of Comics where Deadpool appears: undefined": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				205
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"List list of Comics where Deadpool appears: undefined": true
+				}
+			]
+		}
+	],
+	"count": 1,
+	"totalTime": 9874,
+	"collection": {
+		"requests": [
+			{
+				"id": "4de3e4b3-fb9e-4f73-91a3-0a4601dd0f5d",
+				"method": "GET"
+			},
+			{
+				"id": "df8f1856-f5ae-4940-b6e6-9329ecbf00d2",
+				"method": "GET"
+			},
+			{
+				"id": "be762f11-aacc-48b8-847d-e6bdda0072ac",
+				"method": "GET"
+			},
+			{
+				"id": "1c6a3427-d84b-4145-aba6-a5e73108cc7d",
+				"method": "GET"
+			},
+			{
+				"id": "bee6a1b3-e569-4bdf-a7d2-70b2897125a3",
+				"method": "GET"
+			}
+		]
+	}
+}
