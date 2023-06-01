@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ScenarioTestCases>
+  <ScenarioTestCase>
+    <id>1</id>
+    <case1>Level</case1>
+    <case2>Demoblaze</case2>
+    <case3>123456789</case3>
+  </ScenarioTestCase>
+  <ScenarioTestCase>
+    <id>2</id>
+    <case1>Demoblaze</case1>
+    <case2>Level</case2>
+    <case3>123456789</case3>
+  </ScenarioTestCase>
+</ScenarioTestCases>
