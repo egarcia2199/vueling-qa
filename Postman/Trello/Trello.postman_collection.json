@@ -1,0 +1,686 @@
+{
+	"info": {
+		"_postman_id": "0fc94f9d-87bb-4dc8-af18-8cb66b9d7144",
+		"name": "Trello",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "27609692"
+	},
+	"item": [
+		{
+			"name": "TC1-Create a Board",
+			"item": [
+				{
+					"name": "1.1-Create trello board",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"testValidation200(pm);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{url}}1/boards/?name={{name}}&key={{APIkey}}&token={{Token}}",
+							"host": [
+								"{{url}}1"
+							],
+							"path": [
+								"boards",
+								""
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "{{name}}"
+								},
+								{
+									"key": "key",
+									"value": "{{APIkey}}"
+								},
+								{
+									"key": "token",
+									"value": "{{Token}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "1.2-Get board created",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"testValidation200(pm);\r",
+									"let jsonData = pm.response.json();\r",
+									"\r",
+									"pm.test(\"Value of the ID is the same\", function() {\r",
+									"  pm.expect(jsonData.id).eq('647c83099fb86c54ac7f2894');\r",
+									" console.log(jsonData.id);\r",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}1/boards/{{idBoard}}?key={{APIkey}}&token={{Token}}",
+							"host": [
+								"{{url}}1"
+							],
+							"path": [
+								"boards",
+								"{{idBoard}}"
+							],
+							"query": [
+								{
+									"key": "key",
+									"value": "{{APIkey}}"
+								},
+								{
+									"key": "token",
+									"value": "{{Token}}"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "TC2-Create a list in board",
+			"item": [
+				{
+					"name": "2.1-Create list TareasBloqueadas",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "https://api.trello.com/1/lists?name=TareasBloqueadas&idBoard={{idBoard}}&key={{APIkey}}&token={{Token}}",
+							"protocol": "https",
+							"host": [
+								"api",
+								"trello",
+								"com"
+							],
+							"path": [
+								"1",
+								"lists"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "TareasBloqueadas"
+								},
+								{
+									"key": "idBoard",
+									"value": "{{idBoard}}"
+								},
+								{
+									"key": "key",
+									"value": "{{APIkey}}"
+								},
+								{
+									"key": "token",
+									"value": "{{Token}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "2.2-Create list Tareas Abiertas",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"testValidation200(pm);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "https://api.trello.com/1/lists?name=TareasAbiertas&idBoard={{idBoard}}&key={{APIkey}}&token={{Token}}",
+							"protocol": "https",
+							"host": [
+								"api",
+								"trello",
+								"com"
+							],
+							"path": [
+								"1",
+								"lists"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "TareasAbiertas"
+								},
+								{
+									"key": "idBoard",
+									"value": "{{idBoard}}"
+								},
+								{
+									"key": "key",
+									"value": "{{APIkey}}"
+								},
+								{
+									"key": "token",
+									"value": "{{Token}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "2.3-Get all lists from board",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"testValidation200(pm);\r",
+									"\r",
+									"let jsonData = pm.response.json();\r",
+									"\r",
+									"pm.test(\"Value of the name are the same\", function() {\r",
+									"  pm.expect(jsonData[0].name).eq(\"TareasPendientes\");\r",
+									"  pm.expect(jsonData[1].name).eq(\"TareasAbiertas\");\r",
+									"  pm.expect(jsonData[2].name).eq(\"TareasBloqueadas\");\r",
+									"\r",
+									"    console.log(jsonData[0].name);\r",
+									"    console.log(jsonData[1].name);\r",
+									"    console.log(jsonData[2].name);\r",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}1/boards/{{idBoard}}/lists?key={{APIkey}}&token={{Token}}",
+							"host": [
+								"{{url}}1"
+							],
+							"path": [
+								"boards",
+								"{{idBoard}}",
+								"lists"
+							],
+							"query": [
+								{
+									"key": "key",
+									"value": "{{APIkey}}"
+								},
+								{
+									"key": "token",
+									"value": "{{Token}}"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "TC3- Create cards in lists",
+			"item": [
+				{
+					"name": "3.1-Create card Tarjeta1 for TareasBloqueadas list",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"testValidation200(pm);\r",
+									"\r",
+									"let jsonData = pm.response.json();\r",
+									"\r",
+									"\r",
+									" pm.test(\"Value of the name is the same\", function() {\r",
+									"  pm.expect(jsonData.name).eq(\"Tarjeta1\");\r",
+									"   console.log(jsonData.name);\r",
+									"\r",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{url}}1/cards?idList={{idListTB}}&key={{APIkey}}&token={{Token}}&name=Tarjeta1",
+							"host": [
+								"{{url}}1"
+							],
+							"path": [
+								"cards"
+							],
+							"query": [
+								{
+									"key": "idList",
+									"value": "{{idListTB}}"
+								},
+								{
+									"key": "key",
+									"value": "{{APIkey}}"
+								},
+								{
+									"key": "token",
+									"value": "{{Token}}"
+								},
+								{
+									"key": "name",
+									"value": "Tarjeta1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "3.2-Create card Tarjeta2 for TareasBloqueadas list",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"testValidation200(pm);\r",
+									"\r",
+									"\r",
+									"let jsonData = pm.response.json();\r",
+									"\r",
+									"\r",
+									" pm.test(\"Value of the name is the same\", function() {\r",
+									"  pm.expect(jsonData.name).eq(\"Tarjeta2\");\r",
+									"   console.log(jsonData.name);\r",
+									"\r",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{url}}1/cards?idList={{idListTB}}&key={{APIkey}}&token={{Token}}&name=Tarjeta2",
+							"host": [
+								"{{url}}1"
+							],
+							"path": [
+								"cards"
+							],
+							"query": [
+								{
+									"key": "idList",
+									"value": "{{idListTB}}"
+								},
+								{
+									"key": "key",
+									"value": "{{APIkey}}"
+								},
+								{
+									"key": "token",
+									"value": "{{Token}}"
+								},
+								{
+									"key": "name",
+									"value": "Tarjeta2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "3.3-Move card Tarjeta1 to TareasAbiertas list",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"testValidation200(pm);\r",
+									"\r",
+									"\r",
+									"let jsonData = pm.response.json();\r",
+									"\r",
+									"\r",
+									" pm.test(\"Value of the name is the same\", function() {\r",
+									"  pm.expect(jsonData.name).eq(\"Tarjeta1\");\r",
+									"   console.log(jsonData.name);\r",
+									"\r",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{url}}1/cards/647c8b036deeafc329e87c34?idList={{idListTA}}&key={{APIkey}}&token={{Token}}",
+							"host": [
+								"{{url}}1"
+							],
+							"path": [
+								"cards",
+								"647c8b036deeafc329e87c34"
+							],
+							"query": [
+								{
+									"key": "idList",
+									"value": "{{idListTA}}"
+								},
+								{
+									"key": "key",
+									"value": "{{APIkey}}"
+								},
+								{
+									"key": "token",
+									"value": "{{Token}}"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "TC4-Delete a card",
+			"item": [
+				{
+					"name": "4.1-Delete Tarjeta2 card from TareasBloqueadas List",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"testValidation200(pm);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}1/cards/647dde6be6933c210ca9b34c?key={{APIkey}}&token={{Token}}",
+							"host": [
+								"{{url}}1"
+							],
+							"path": [
+								"cards",
+								"647dde6be6933c210ca9b34c"
+							],
+							"query": [
+								{
+									"key": "key",
+									"value": "{{APIkey}}"
+								},
+								{
+									"key": "token",
+									"value": "{{Token}}"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "TC5-Add a member in card",
+			"item": [
+				{
+					"name": "5.1-Get members of Tarjeta1 card",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"testValidation200(pm);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}1/cards/647c8b036deeafc329e87c34/members?key={{APIkey}}&token={{Token}}",
+							"host": [
+								"{{url}}1"
+							],
+							"path": [
+								"cards",
+								"647c8b036deeafc329e87c34",
+								"members"
+							],
+							"query": [
+								{
+									"key": "key",
+									"value": "{{APIkey}}"
+								},
+								{
+									"key": "token",
+									"value": "{{Token}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "5.2-Add member to card",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"testValidation200(pm);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{url}}1/cards/647c8b036deeafc329e87c34/{{id}}?key={{APIkey}}&token={{Token}}",
+							"host": [
+								"{{url}}1"
+							],
+							"path": [
+								"cards",
+								"647c8b036deeafc329e87c34",
+								"{{id}}"
+							],
+							"query": [
+								{
+									"key": "key",
+									"value": "{{APIkey}}"
+								},
+								{
+									"key": "token",
+									"value": "{{Token}}"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "TC6-Delete a list",
+			"item": [
+				{
+					"name": "6.1-Rename List to PruebaCambioNombre",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"testValidation200(pm);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{url}}1/lists/647c83099fb86c54ac7f289b?name=PruebaCambioNombre&key={{APIkey}}&token={{Token}}",
+							"host": [
+								"{{url}}1"
+							],
+							"path": [
+								"lists",
+								"647c83099fb86c54ac7f289b"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "PruebaCambioNombre"
+								},
+								{
+									"key": "key",
+									"value": "{{APIkey}}"
+								},
+								{
+									"key": "token",
+									"value": "{{Token}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "6.2-Get lists of board",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"testValidation200(pm);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}1/boards/{{idBoard}}/lists?key={{APIkey}}&token={{Token}}",
+							"host": [
+								"{{url}}1"
+							],
+							"path": [
+								"boards",
+								"{{idBoard}}",
+								"lists"
+							],
+							"query": [
+								{
+									"key": "key",
+									"value": "{{APIkey}}"
+								},
+								{
+									"key": "token",
+									"value": "{{Token}}"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					"testValidation200 = function (pm) {",
+					"    pm.test(\"Status code is 200\", function () {",
+					"        pm.response.to.have.status(200);",
+					"    });",
+					"}",
+					"",
+					"testValidation201 = function (pm) {",
+					"    pm.test(\"Status code is 201\", function () {",
+					"        pm.response.to.have.status(201);",
+					"    });",
+					"}",
+					"",
+					"testValidation204 = function (pm) {",
+					"    pm.test(\"Status code is 204\", function () {",
+					"        pm.response.to.have.status(204);",
+					"    });",
+					"}"
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "url",
+			"value": "https://api.trello.com/"
+		}
+	]
+}

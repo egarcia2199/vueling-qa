@@ -1,0 +1,446 @@
+{
+	"id": "77cd2a84-1061-414e-8d60-e2e66bb9683f",
+	"name": "Trello",
+	"timestamp": "2023-06-05T13:42:05.204Z",
+	"collection_id": "27609692-0fc94f9d-87bb-4dc8-af18-8cb66b9d7144",
+	"folder_id": 0,
+	"environment_id": "27609692-f4e3a810-4d35-40c6-b565-ffdd33ca609e",
+	"totalPass": 14,
+	"delay": 0,
+	"persist": true,
+	"status": "finished",
+	"startedAt": "2023-06-05T13:41:59.779Z",
+	"totalFail": 3,
+	"results": [
+		{
+			"id": "7f112367-eff9-4f22-a8bb-6f98790d7a2f",
+			"name": "1.1-Create trello board",
+			"url": "https://api.trello.com/1/boards/?name=ericgarcia167&key=6f784513591500ae3a1083191f733fd2&token=ATTAeb7da51c57fd5dd37326521dfe97eddf1e33a37b842fec2d00e4f7baed0fb2669FFFCDCB",
+			"time": 420,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				420
+			],
+			"allTests": [
+				{
+					"Status code is 200": true
+				}
+			]
+		},
+		{
+			"id": "6801918b-ccf7-42e1-8087-1fed6115b06c",
+			"name": "1.2-Get board created",
+			"url": "https://api.trello.com/1/boards/647c83099fb86c54ac7f2894?key=6f784513591500ae3a1083191f733fd2&token=ATTAeb7da51c57fd5dd37326521dfe97eddf1e33a37b842fec2d00e4f7baed0fb2669FFFCDCB",
+			"time": 464,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Value of the ID is the same": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Value of the ID is the same": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				464
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Value of the ID is the same": true
+				}
+			]
+		},
+		{
+			"id": "29d99021-7f9d-4437-895b-37ed7fef0a84",
+			"name": "2.1-Create list TareasBloqueadas",
+			"url": "https://api.trello.com/1/lists?name=TareasBloqueadas&idBoard=647c83099fb86c54ac7f2894&key=6f784513591500ae3a1083191f733fd2&token=ATTAeb7da51c57fd5dd37326521dfe97eddf1e33a37b842fec2d00e4f7baed0fb2669FFFCDCB",
+			"time": 294,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				294
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "82436cca-a655-4bbb-80d8-78ff6cd81b9d",
+			"name": "2.2-Create list Tareas Abiertas",
+			"url": "https://api.trello.com/1/lists?name=TareasAbiertas&idBoard=647c83099fb86c54ac7f2894&key=6f784513591500ae3a1083191f733fd2&token=ATTAeb7da51c57fd5dd37326521dfe97eddf1e33a37b842fec2d00e4f7baed0fb2669FFFCDCB",
+			"time": 279,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				279
+			],
+			"allTests": [
+				{
+					"Status code is 200": true
+				}
+			]
+		},
+		{
+			"id": "41831977-0f8d-4f4b-b27f-f413144f9ca0",
+			"name": "2.3-Get all lists from board",
+			"url": "https://api.trello.com/1/boards/647c83099fb86c54ac7f2894/lists?key=6f784513591500ae3a1083191f733fd2&token=ATTAeb7da51c57fd5dd37326521dfe97eddf1e33a37b842fec2d00e4f7baed0fb2669FFFCDCB",
+			"time": 228,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Value of the name are the same": false
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Value of the name are the same": {
+					"pass": 0,
+					"fail": 1
+				}
+			},
+			"times": [
+				228
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Value of the name are the same": false
+				}
+			]
+		},
+		{
+			"id": "b1c14c49-f236-4640-84e3-5b4123689cc1",
+			"name": "3.1-Create card Tarjeta1 for TareasBloqueadas list",
+			"url": "https://api.trello.com/1/cards?idList=647c85618351211a0c13db59&key=6f784513591500ae3a1083191f733fd2&token=ATTAeb7da51c57fd5dd37326521dfe97eddf1e33a37b842fec2d00e4f7baed0fb2669FFFCDCB&name=Tarjeta1",
+			"time": 365,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Value of the name is the same": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Value of the name is the same": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				365
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Value of the name is the same": true
+				}
+			]
+		},
+		{
+			"id": "02427c96-889d-4c1a-abcf-479e7cd0a904",
+			"name": "3.2-Create card Tarjeta2 for TareasBloqueadas list",
+			"url": "https://api.trello.com/1/cards?idList=647c85618351211a0c13db59&key=6f784513591500ae3a1083191f733fd2&token=ATTAeb7da51c57fd5dd37326521dfe97eddf1e33a37b842fec2d00e4f7baed0fb2669FFFCDCB&name=Tarjeta2",
+			"time": 566,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Value of the name is the same": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Value of the name is the same": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				566
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Value of the name is the same": true
+				}
+			]
+		},
+		{
+			"id": "4a9e5926-6898-40a5-ab95-3827327030ce",
+			"name": "3.3-Move card Tarjeta1 to TareasAbiertas list",
+			"url": "https://api.trello.com/1/cards/647c8b036deeafc329e87c34?idList=647c8a2cc668d9c95c55fef2&key=6f784513591500ae3a1083191f733fd2&token=ATTAeb7da51c57fd5dd37326521dfe97eddf1e33a37b842fec2d00e4f7baed0fb2669FFFCDCB",
+			"time": 290,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Value of the name is the same": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Value of the name is the same": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				290
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Value of the name is the same": true
+				}
+			]
+		},
+		{
+			"id": "329e3dfe-acca-4a50-b5b9-20795a29532a",
+			"name": "4.1-Delete Tarjeta2 card from TareasBloqueadas List",
+			"url": "https://api.trello.com/1/cards/647dde6be6933c210ca9b34c?key=6f784513591500ae3a1083191f733fd2&token=ATTAeb7da51c57fd5dd37326521dfe97eddf1e33a37b842fec2d00e4f7baed0fb2669FFFCDCB",
+			"time": 217,
+			"responseCode": {
+				"code": 404,
+				"name": "Not Found"
+			},
+			"tests": {
+				"Status code is 200": false
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 0,
+					"fail": 1
+				}
+			},
+			"times": [
+				217
+			],
+			"allTests": [
+				{
+					"Status code is 200": false
+				}
+			]
+		},
+		{
+			"id": "3aac4043-e217-4505-a25a-e7544a50f7d9",
+			"name": "5.1-Get members of Tarjeta1 card",
+			"url": "https://api.trello.com/1/cards/647c8b036deeafc329e87c34/members?key=6f784513591500ae3a1083191f733fd2&token=ATTAeb7da51c57fd5dd37326521dfe97eddf1e33a37b842fec2d00e4f7baed0fb2669FFFCDCB",
+			"time": 224,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				224
+			],
+			"allTests": [
+				{
+					"Status code is 200": true
+				}
+			]
+		},
+		{
+			"id": "74954287-60b8-49b2-8728-587544e7db4e",
+			"name": "5.2-Add member to card",
+			"url": "https://api.trello.com/1/cards/647c8b036deeafc329e87c34/624beea0c98fc7099b015f69?key=6f784513591500ae3a1083191f733fd2&token=ATTAeb7da51c57fd5dd37326521dfe97eddf1e33a37b842fec2d00e4f7baed0fb2669FFFCDCB",
+			"time": 175,
+			"responseCode": {
+				"code": 404,
+				"name": "Not Found"
+			},
+			"tests": {
+				"Status code is 200": false
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 0,
+					"fail": 1
+				}
+			},
+			"times": [
+				175
+			],
+			"allTests": [
+				{
+					"Status code is 200": false
+				}
+			]
+		},
+		{
+			"id": "314b13ae-4451-4249-8995-f686b7fcc80c",
+			"name": "6.1-Rename List to PruebaCambioNombre",
+			"url": "https://api.trello.com/1/lists/647c83099fb86c54ac7f289b?name=PruebaCambioNombre&key=6f784513591500ae3a1083191f733fd2&token=ATTAeb7da51c57fd5dd37326521dfe97eddf1e33a37b842fec2d00e4f7baed0fb2669FFFCDCB",
+			"time": 225,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				225
+			],
+			"allTests": [
+				{
+					"Status code is 200": true
+				}
+			]
+		},
+		{
+			"id": "73339c4f-8dc8-4052-a4dd-af49217b7e01",
+			"name": "6.2-Get lists of board",
+			"url": "https://api.trello.com/1/boards/647c83099fb86c54ac7f2894/lists?key=6f784513591500ae3a1083191f733fd2&token=ATTAeb7da51c57fd5dd37326521dfe97eddf1e33a37b842fec2d00e4f7baed0fb2669FFFCDCB",
+			"time": 202,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				202
+			],
+			"allTests": [
+				{
+					"Status code is 200": true
+				}
+			]
+		}
+	],
+	"count": 1,
+	"totalTime": 3949,
+	"collection": {
+		"requests": [
+			{
+				"id": "7f112367-eff9-4f22-a8bb-6f98790d7a2f",
+				"method": "POST"
+			},
+			{
+				"id": "6801918b-ccf7-42e1-8087-1fed6115b06c",
+				"method": "GET"
+			},
+			{
+				"id": "29d99021-7f9d-4437-895b-37ed7fef0a84",
+				"method": "POST"
+			},
+			{
+				"id": "82436cca-a655-4bbb-80d8-78ff6cd81b9d",
+				"method": "POST"
+			},
+			{
+				"id": "41831977-0f8d-4f4b-b27f-f413144f9ca0",
+				"method": "GET"
+			},
+			{
+				"id": "b1c14c49-f236-4640-84e3-5b4123689cc1",
+				"method": "POST"
+			},
+			{
+				"id": "02427c96-889d-4c1a-abcf-479e7cd0a904",
+				"method": "POST"
+			},
+			{
+				"id": "4a9e5926-6898-40a5-ab95-3827327030ce",
+				"method": "PUT"
+			},
+			{
+				"id": "329e3dfe-acca-4a50-b5b9-20795a29532a",
+				"method": "DELETE"
+			},
+			{
+				"id": "3aac4043-e217-4505-a25a-e7544a50f7d9",
+				"method": "GET"
+			},
+			{
+				"id": "74954287-60b8-49b2-8728-587544e7db4e",
+				"method": "POST"
+			},
+			{
+				"id": "314b13ae-4451-4249-8995-f686b7fcc80c",
+				"method": "PUT"
+			},
+			{
+				"id": "73339c4f-8dc8-4052-a4dd-af49217b7e01",
+				"method": "GET"
+			}
+		]
+	}
+}
