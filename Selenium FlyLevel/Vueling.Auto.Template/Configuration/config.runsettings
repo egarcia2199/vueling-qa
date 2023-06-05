@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RunSettings>
+  <!-- Configurations that affect the Test Framework -->
+  <!--  See https://docs.microsoft.com/en-us/visualstudio/test/configure-unit-tests-by-using-a-dot-runsettings-file -->
+  <RunConfiguration>
+    <MaxCpuCount>4</MaxCpuCount>
+    <!-- Path relative to solution directory -->
+    <!--<ResultsDirectory>.\TestResults</ResultsDirectory> -->
+
+     <!--TestSessionTimeout is only available with Visual Studio 2017 version 15.5 and higher -->
+     <!-- Specify timeout in milliseconds. A valid value should be greater than 0 -->
+     <!--TestSessionTimeout>10000</TestSessionTimeout> -->
+  </RunConfiguration>
+
+  <!-- Configurations for data collectors -->
+  <DataCollectionRunSettings>
+    <DataCollectors>
+      <!--Video data collector is only available with Visual Studio 2017 version 15.5 and higher -->
+      <DataCollector uri="datacollector://microsoft/VideoRecorder/1.0" assemblyQualifiedName="Microsoft.VisualStudio.TestTools.DataCollection.VideoRecorder.VideoRecorderDataCollector, Microsoft.VisualStudio.TestTools.DataCollection.VideoRecorder, Version=15.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" friendlyName="Screen and Voice Recorder">
+      </DataCollector>
+    </DataCollectors>
+  </DataCollectionRunSettings>
+  
+  <TestRunParameters>
+    <!--
+    targetURL: Url of page.
+    pageLoadTimeout: Time to wait in some pages.
+    browser: Type of Browser you want to use.
+    -->
+    <Parameter name="targetUrl" value="https://www.flylevel.com/"/>
+    <Parameter name="pageLoadTimeout" value="110" />
+    <Parameter name="waitTimeout" value="40" />
+    <Parameter name="paymentTimeout" value="70" />
+    <Parameter name="browser" value="ChromeLocal" />
+  </TestRunParameters>
+</RunSettings>
